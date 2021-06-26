@@ -1,3 +1,6 @@
+{% load static %}
+{% load bootstrap4 %}
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,9 +9,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sobre Caos News</title>
-    <link rel="stylesheet" href="css/bootstrap.css">
-    <link rel="stylesheet" href="css/estiloaboutus.css">
-    <link rel="icon" type="image/png" href="img/l-redondo.png" />
+    {% bootstrap_css %}
+    <link rel="stylesheet" href="{% static 'core/css/estiloaboutus.css' %}">
+    <link rel="icon" type="image/png" href="{% static 'core/img/l-redondo.png' %}" />
 </head>
 
 <body>
@@ -23,7 +26,7 @@
                         <a class="nav-link" href="#">Sobre Caos News</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="index.html#contacto">Contacto</a>
+                        <a class="nav-link" href="{% url 'index' %}" >Contacto</a>
                     </li>
                 </ul>
             </div>
@@ -31,17 +34,17 @@
         <!--logo-login-search-->
         <div class="row">
             <div class="col">
-                <img src="img/l-alargado-2.png" alt="">
+                <img src="{% static 'core/img/l-alargado-2.png' %}" alt="">
             </div>
             <div class="col">
                 <div id="logreg">
                     <div class="row">
                         <div id="logreg">
                             <div class="col">
-                                <a href="Login.html"><button type="button1" class="btn btn-outline-primary">Log in</button></a>
+                                <a href="{% url 'Login' %}"><button type="button1" class="btn btn-outline-primary">Log in</button></a>
                             </div>
                             <div class="col">
-                                <a href="Register.html"><button type="button1"
+                                <a href="{% url 'Register' %}"><button type="button1"
                                         class="btn btn-primary">Registrate</button></a>
                             </div>
                         </div>
@@ -60,7 +63,7 @@
                 <div class="row">
                     <ul class="nav justify-content-end">
                         <li class="nav-item">
-                            <a class="nav-link enlace" href="index.html">Inicio</a>
+                            <a class="nav-link enlace" href="{% url 'index' %}">Inicio</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link enlace" href="#directores">Directores</a>
@@ -181,11 +184,9 @@
                 </div>
             </div>
         </div>
-        <a href="#top"><img class="btn-top" src="img/l-redondo.png" alt="Go to Top"></a>
+        <a href="#top"><img class="btn-top" src="{% static 'core/img/l-redondo.png' %}" alt="Go to Top"></a>
     </div>
-    <script src="js/jquery-3.6.0.js"></script>
-    <script src="js/popper.js"></script>
-    <script src="js/bootstrap.js"></script>
+    {% bootstrap_javascript jquery='full' %}
 </body>
 
 </html>

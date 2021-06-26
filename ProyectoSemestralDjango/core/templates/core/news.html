@@ -1,14 +1,17 @@
+{% load static %}
+{% load bootstrap4 %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="css/bootstrap.css">
-  <link rel="stylesheet" href="css/estiloNews.css">
-  <link rel="stylesheet" href="css/nuestroestilo.css">
-  <link rel="icon" type="image/png" href="img/l-redondo.png" />
   <title>Noticia</title>
+  {% bootstrap_css %}
+  <link rel="stylesheet" href="{% static 'core/css/estiloNews.css' %}">
+  <link rel="stylesheet" href="{% static 'core/css/nuestroestilo.css' %}">
+  <link rel="icon" type="image/png" href="{% static 'core/img/l-redondo.png' %}" />
 </head>
 <body>
 <!-- Capa contenedora -->
@@ -18,10 +21,10 @@
         <div id="mini-nav">
             <ul class="nav">
                 <li class="nav-item">
-                  <a class="nav-link" href="AboutUs.html">Sobre Caos News</a>
+                  <a class="nav-link" href="{% url 'AboutUs' %}">Sobre Caos News</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="index.html#contacto">Contacto</a>
+                  <a class="nav-link" href="{% url 'index' %}">Contacto</a>
                 </li>
             </ul>
         </div>
@@ -29,16 +32,16 @@
 <!-- logo-login-search-->
     <div class="row">
         <div class="col">
-            <img src="img/l-alargado-2.png" alt="">
+            <img src="{% static 'core/img/l-alargado-2.png' %}" alt="">
         </div>
         <div class="col">
             <div id="logreg">
                 <div class="row">
                   <div class="col">
-                    <a href="Login.html"><button type="button1" class="btn btn-light">Log in</button></a>   
+                    <a href="{% url 'Login' %}"><button type="button1" class="btn btn-light">Log in</button></a>   
                   </div>
                   <div class="col">
-                    <a href="Register.html"><button type="button1" class="btn btn-primary">Registrate</button></a>
+                    <a href="{% url 'Register' %}"><button type="button1" class="btn btn-primary">Registrate</button></a>
                   </div>
                 </div>
             </div>
@@ -56,10 +59,10 @@
               <div id="elnav">
                   <ul class="nav justify-content-end">
                       <li class="nav-item">
-                          <a class="nav-link active" href="index.html">Inicio</a>
+                          <a class="nav-link active" href="{% url 'index' %}">Inicio</a>
                       </li>
                       <li class="nav-item">
-                          <a class="nav-link" href="index.html#categoria">Categorias</a>
+                          <a class="nav-link" href="{% url 'index' %}">Categorias</a>
                       </li>
                       <li class="nav-item">
                           <a class="nav-link" href="#">Equipo</a>
@@ -75,7 +78,7 @@
       <div class="row">
         <div class="col">
           <div class="fotonoticia">
-            <img src="img/farkasF.jpg" alt="">
+            <img src="{% static 'core/img/farkasF.jpg' %}" alt="">
           </div>
         </div>
       </div>
@@ -116,14 +119,12 @@
     <div>
       <section id="banner-video">
         <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstleyVEVO">
-          <img src="img/play.svg" alt="play">
+          <img src="{% static 'core/img/play.svg' %}" alt="play">
         </a>
       </section>
     </div>
   </div>
   <!-- Bootstrap utilziando CDN -->
-  <script src="js/jquery-3.6.0.js"></script>
-  <script src="js/popper.min.js"></script>
-  <script src="js/bootstrap.js"></script> 
+  {% bootstrap_javascript jquery='full' %}
 </body>
 </html>

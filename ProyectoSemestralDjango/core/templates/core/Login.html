@@ -1,3 +1,6 @@
+{% load static %}
+{% load bootstrap4 %}
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,9 +9,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    <link rel="stylesheet" href="css/bootstrap.css">
-    <link rel="stylesheet" href="css/estilologin.css">
-    <link rel="icon" type="image/png" href="img/l-redondo.png" />
+    {% bootstrap_css %}
+    <link rel="stylesheet" href="{% static 'core/css/estilologin.css' %}">
+    <link rel="icon" type="image/png" href="{% static 'core/img/l-redondo.png' %}" />
 
 </head>
 
@@ -20,10 +23,10 @@
             <div class="col">
                 <ul class="nav-login">
                     <li class="nav-item">
-                        <a class="link" href="AboutUs.html">Sobre Caos News</a>
+                        <a class="link" href="{% url 'AboutUs' %}">Sobre Caos News</a>
                     </li>
                     <li class="nav-item der">
-                        <a class="link" href="index.html">INICIO</a>
+                        <a class="link" href="{% url 'index' %}">INICIO</a>
                     </li>
                 </ul>
             </div>
@@ -32,8 +35,8 @@
         <!--logo-->
         <div class="row">
             <div class="col">
-                <img class="logo_full" src="img/l-alargado-3.png" alt="logo">
-                <img class="logo_mobile" src="img/l-alargado-2.png" alt="logo">
+                <img class="logo_full" src="{% static 'core/img/l-alargado-3.png' %}" alt="logo">
+                <img class="logo_mobile" src="{% static 'core/img/l-alargado-2.png' %}" alt="logo">
             </div>
         </div>
 <!-- Login Box -->
@@ -65,15 +68,13 @@
                     <button type="submit" class="btn button">Ingresar</button>
                 </div>  
 
-                <a href="Register.html"><input type="button" class="btn" value="REGISTRO"></a>
+                <a href="{% url 'Register' %}"><input type="button" class="btn" value="REGISTRO"></a>
             </form>
         </div>
-        <div><img class="login-gira" src="img/l-redondo.png" alt=""></div>
+        <div><img class="login-gira" src="{% static 'core/img/l-redondo.png'%}" alt=""></div>
     </div>
-    <script src="js/jquery-3.6.0.js"></script>
-    <script src="js/popper.js"></script>
-    <script src="js/bootstrap.js"></script>
-    <script src="js/validacionLogin.js"></script>
+    {% bootstrap_javascript jquery='full' %}
+    <script src="{% static 'core/js/validacionLogin.js' %}"></script>
 </body>
 
 </html>
