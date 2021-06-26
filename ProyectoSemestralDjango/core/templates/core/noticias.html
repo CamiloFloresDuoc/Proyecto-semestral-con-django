@@ -1,0 +1,132 @@
+{% load static %}
+{% load bootstrap4 %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Noticias</title>
+    {% bootstrap_css %}
+    <link rel="stylesheet" href="{% static 'core/css/estilonoticias.css' %}">
+    <link rel="icon" type="imgage/png" href="{% static 'core/img/l-redondo.png' %}">
+</head>
+<body>
+    <div class="container-fluid">
+<!--Nav-->
+        <nav class="row" id="navi">
+            <div class="col-9">
+                <nav class="navbar navbar-expand-lg navbar-light">
+                    <a class="navbar-brand" href="#">
+                        <img src="{% static 'core/img/letra1.png' %}" height="35px" alt="">
+                    </a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item active">
+                        <a class="nav-link" href="{% url 'index' %}">Inicio <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#notic">Noticias</a>
+                            </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'AboutUs' %}">Sobre Caos</a>
+                        </li>
+                    </ul>
+                    </div>
+                </nav>
+            </div>
+            <div class="col reglog">
+                <a href="{% url 'Login' %}"><button type="button" class="btn btn-outline-dark">Login</button></a>
+                <a href="{% url 'Register' %}"><button type="button" class="btn btn-dark">Registrate</button></a>
+            </div>
+        </nav>
+<!--contenido-->
+    <!--Barras busqueda-->
+        <br id="notic">
+        <br>
+        <br>
+        <br>
+
+        <div class="row">
+            <div class="col-1"></div>
+            <div class="col">
+                <form action="" method="POST" name="busca" id="busca">
+                    <div class="row" id="busqueda">
+                        <div class="col">
+                            <a href="{% url 'noticias' %}"><button type="button" class="btn btn-dark">Ver sólo Noticias</button></a>
+                        </div>
+                        <div class="col-4">
+                            <div class="from-group">
+                                <select name="autor" id="autor" class="custom-select">
+                                    <option value="selected">Buscar autor</option>
+                                    <option value="1">Camilo Flores</option>
+                                    <option value="2">Marcelo Rodriguez</option>
+                                    <option value="3">Bastián Leyton</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="from-group">
+                                <select name="categoria" id="cate" class="custom-select">
+                                    <option value="selected">Buscar categoría</option>
+                                    <option value="1">Nacional</option>
+                                    <option value="2">Internacional</option>
+                                    <option value="3">Deportes</option>
+                                    <option value="4">Cultura</option>
+                                    <option value="5">Culinario</option>
+                                    <option value="6">Pandemia</option>
+                                    <option value="7">Social</option>
+                                    <option value="8">Random</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="col-1"></div>
+        </div>
+        <br>
+        <br>
+
+    <!--noticias cards-->
+        <div class="row">
+            <div class="col-1"></div>
+            <div class="col">
+                <div class="card mb-3" style="max-width: 100%;">
+                    <div class="row no-gutters">
+                    <div class="col-md-4">
+                        <img src="..." alt="...">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                        <a href="{% url 'news' %}" class="btn btn-primary">Leer más ...</a>
+                        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-1"></div>
+        </div>
+        <div class="row espacio"></div>
+<!--footer-->
+        <footer class="row">
+            <div class="col-8">
+            <span><p>Caos news el mejor medio independiente de noticias!</p></span>
+            </div>
+            <div class="col-2">
+            <p>®CaosNews</p>
+            </div>
+        </footer>
+    </div>
+    <br>
+    <br>
+
+    {% bootstrap_javascript jquery='full' %}
+</body>
+</html>

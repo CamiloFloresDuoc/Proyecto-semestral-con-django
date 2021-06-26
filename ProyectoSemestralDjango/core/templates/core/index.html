@@ -41,7 +41,7 @@
                         <a class="nav-link" href="#contac">Contacto</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Sobre Caos</a>
+                            <a class="nav-link" href="{% url 'AboutUs' %}">Sobre Caos</a>
                         </li>
                     </ul>
                     </div>
@@ -60,7 +60,7 @@
             <div class="text">
                 <img src="{% static 'core/img/letra3.png' %}" height="60px" alt="">
                 <br>
-                <h6>BIENVENIDO A LA NUEVA ERA DE INFORMACIÓN</h6>
+                <h6>BIENVENIDO A UNA NUEVA ERA DE INFORMACIÓN</h6>
             </div>
         </div>
 <!--carrusel-->
@@ -178,7 +178,10 @@
             <div class="col">
                 <form action="" method="POST" name="busca" id="busca">
                     <div class="row" id="busqueda">
-                        <div class="col-6">
+                        <div class="col">
+                            <a href="{% url 'noticias' %}"><button type="button" class="btn btn-dark">Ver sólo Noticias</button></a>
+                        </div>
+                        <div class="col-4">
                             <div class="from-group">
                                 <select name="autor" id="autor" class="custom-select">
                                     <option value="selected">Buscar autor</option>
@@ -188,7 +191,7 @@
                                 </select>
                             </div>
                         </div>
-                        <div class="col-6">
+                        <div class="col-4">
                             <div class="from-group">
                                 <select name="categoria" id="cate" class="custom-select">
                                     <option value="selected">Buscar categoría</option>
@@ -213,41 +216,25 @@
 
 <!--noticias cards-->
         <div class="row">
-            <div class="col-md-4">
-                <div class="card">
-                    <div class="tamanonoticia">
-                        <img src="{% static 'core/img/farkasF.jpg' %}" class="card-img-top" alt="...">
-                        <div class="card-body text-center">
-                            <h5 class="card-title">Farkas lo pierde todo!</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk
-                                of the card's content.</p>
-                            <a href="{% url 'news' %}" class="btn btn-outline-dark">Leer más ...</a>
+            <div class="col-1"></div>
+            <div class="col">
+                <div class="card mb-3" style="max-width: 100%;">
+                    <div class="row no-gutters">
+                    <div class="col-md-4">
+                        <img src="..." alt="...">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                        <a href="{% url 'news' %}" class="btn btn-primary">Leer más ...</a>
+                        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
                         </div>
                     </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card">
-                    <img src="https://picsum.photos/seed/25/300/200" class="card-img-top" alt="...">
-                    <div class="card-body text-center">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
-                            the card's content.</p>
-                        <a href="#" class="btn btn-outline-dark">Leer más ...</a>
                     </div>
                 </div>
             </div>
-            <div class="col-md-4">
-                <div class="card">
-                    <img src="https://picsum.photos/seed/26/300/200" class="card-img-top" alt="...">
-                    <div class="card-body text-center">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
-                            the card's content.</p>
-                        <a href="#" class="btn btn-outline-dark">Leer más ...</a>
-                    </div>
-                </div>
-            </div>
+            <div class="col-1"></div>
         </div>
         <br>
         <br>
@@ -308,8 +295,8 @@
                 </div>
                 <div class="form-row">
                     <div class="col">
-                        <button type="submit" class="btn btn-primary">Enviar</button>
-                        <button type="reset" class="btn btn-danger">Limpiar</button>
+                        <button type="submit" class="btn btn-dark">Enviar</button>
+                        <button type="reset" class="btn btn-outline-dark">Limpiar</button>
                     </div>
                 </div>
             </form>

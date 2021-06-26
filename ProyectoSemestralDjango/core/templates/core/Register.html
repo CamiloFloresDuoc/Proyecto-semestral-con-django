@@ -15,26 +15,34 @@
 </head>
 
 <body>
-    <div class="container">
-        <div class="row">
-            <div class="col">
-                <ul class="nav-login">
-                    <li class="nav-item">
-                        <a class="link" href="{% url 'AboutUs' %}">Sobre Caos News</a>
-                    </li>
-                    <li class="nav-item der">
-                        <a class="link" href="{% url 'index' %}">INICIO</a>
-                    </li>
-                </ul>
+    <div class="container-fluid">
+        <!--Nav-->
+        <nav class="row" id="navi">
+            <div class="col-9">
+                <nav class="navbar navbar-expand-lg navbar-light">
+                    <a class="navbar-brand" href="#">
+                        <img src="{% static 'core/img/letra1.png' %}" height="35px" alt="">
+                    </a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item active">
+                        <a class="nav-link" href="{% url 'index' %}">Inicio <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'AboutUs' %}">Sobre Caos</a>
+                        </li>
+                    </ul>
+                    </div>
+                </nav>
             </div>
-        </div>
-        <!--logo-->
-        <div class="row">
-            <div class="col">
-                <img class="logo_full" src="{% static 'core/img/l-alargado-3.png' %}" alt="logo">
-                <img class="logo_mobile" src="{% static 'core/img/l-alargado-2.png' %}" alt="logo">
-            </div>
-        </div>
+        </nav>
+<!--contenido-->
+        <br>
+        <br>
+        <br>
         <div class="row">
             <div class="col-md-7">
                 <div class="card border-dark">
@@ -70,34 +78,34 @@
                             <div class="form-group">
                                 <i class="fas fa-user-edit icon"></i>
                                 <input type="text" class="form-control" id="nombre"
-                                    placeholder="NOMBRE" required>
+                                    placeholder="Nombre" required>
                             </div>
                             <div class="form-group">
                                 <i class="fas fa-user-edit icon"></i>
                                 <input type="text" class="form-control" id="apellido"
-                                    placeholder="APELLIDO" required>
+                                    placeholder="Apellido" required>
                             </div>
                             <div class="form-group">
                                 <i class="fas fa-user icon"></i>
                                 <input type="text" class="form-control" id="username"
-                                    placeholder="USERNAME" required>
+                                    placeholder="Nombre usuario" required>
                             </div>
                             <div class="form-group">
                                 <i class="fas fa-lock icon"></i>
                                 <input type="password" class="form-control" id="password" onkeyup ="check();"
-                                    placeholder="PASSWORD" required minlength="6" required>
+                                    placeholder="Contraseña" required minlength="6" required>
                             </div>
                             <div class="form-group">
                                 <i class="fas fa-lock icon"></i>
                                 <input type="password" class="form-control" id="confirmpassword" onkeyup ="check();"
-                                    placeholder="CONFIRM PASSWORD" required minlength="6" required>
+                                    placeholder="Confirmar contraseña" required minlength="6" required>
                                     <span id="message"></span>
                             </div>
                             <div class="form-check">
                                 <input type="checkbox" class="form-check-input" id="checkbox" required>
                                 <label class="form-check-label" for="exampleCheck1" required>¿Acepta los terminos?</label>
                             </div>
-                            <button type="submit" class="btn btn-primary" id="registrar">REGISTRAR</button>
+                            <button type="submit" class="btn btn-dark" id="registrar">REGISTRAR</button>
                         </form>
                     </div>
                 </div>

@@ -17,29 +17,33 @@
 
 <body>
 
-    <div class="container">
-        <!--Mini btn about-->
-        <div class="row">
-            <div class="col">
-                <ul class="nav-login">
-                    <li class="nav-item">
-                        <a class="link" href="{% url 'AboutUs' %}">Sobre Caos News</a>
-                    </li>
-                    <li class="nav-item der">
-                        <a class="link" href="{% url 'index' %}">INICIO</a>
-                    </li>
-                </ul>
+    <div class="container-fluid">
+        <!--Nav-->
+        <nav class="row" id="navi">
+            <div class="col-9">
+                <nav class="navbar navbar-expand-lg navbar-light">
+                    <a class="navbar-brand" href="#">
+                        <img src="{% static 'core/img/letra1.png' %}" height="35px" alt="">
+                    </a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item active">
+                        <a class="nav-link" href="{% url 'index' %}">Inicio <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'AboutUs' %}">Sobre Caos</a>
+                        </li>
+                    </ul>
+                    </div>
+                </nav>
             </div>
-        </div>
-
-        <!--logo-->
-        <div class="row">
-            <div class="col">
-                <img class="logo_full" src="{% static 'core/img/l-alargado-3.png' %}" alt="logo">
-                <img class="logo_mobile" src="{% static 'core/img/l-alargado-2.png' %}" alt="logo">
-            </div>
-        </div>
+        </nav>
 <!-- Login Box -->
+        <br>
+        <br>
         <div class="login-box text-center">
             <h1>Login</h1>
             <form class="contacto" id="contactForm">
@@ -65,13 +69,23 @@
 
                 <!-- <a href="index.html"><input type="button" class="btn" onclick="validar()" value="INGRESAR"></a> -->
                 <div>
-                    <button type="submit" class="btn button">Ingresar</button>
+                    <a href="{% url 'periodista' %}"><button type="button" class="btn btn-dark">Ingresar</button></a>
                 </div>  
-
-                <a href="{% url 'Register' %}"><input type="button" class="btn" value="REGISTRO"></a>
+                <br>
+                <div>
+                    <a href="{% url 'Register' %}"><button type="button" class="btn btn-outline-dark">Registrate</button></a>
+                </div> 
             </form>
         </div>
-        <div><img class="login-gira" src="{% static 'core/img/l-redondo.png'%}" alt=""></div>
+        <div id="redondo"><img class="login-gira" src="{% static 'core/img/l-redondo.png'%}" alt=""></div>
+        <footer class="row">
+            <div class="col-8">
+              <span><p>Caos news el mejor medio independiente de noticias!</p></span>
+            </div>
+            <div class="col-2">
+              <p>®CaosNews</p>
+            </div>
+        </footer>
     </div>
     {% bootstrap_javascript jquery='full' %}
     <script src="{% static 'core/js/validacionLogin.js' %}"></script>

@@ -46,7 +46,7 @@ $(document).ready(function(){
         exito = validaNombre()
     });
     $("#password").blur(function(){
-        exito = validaContrasenna(16)
+        exito = validaContrasenna(9)
     });
 
     $("#contactForm").submit(function(){

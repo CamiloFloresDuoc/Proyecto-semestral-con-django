@@ -4,15 +4,12 @@
 
 body,
 html {
-    background-color: rgb(34, 34, 34);
+    background-color: rgba(199, 199, 199, 0.082);
     
 }
 
-.container {
-    font-family: sans-serif;
-    background-color: white;
-    padding-top: 20px;
-    margin: auto;
+.container-fluid {
+    background-color: rgba(199, 199, 199, 0.082);
         
 }
 .nav-login {
@@ -41,26 +38,10 @@ html {
     float: right;
 }
 
-.logo_full {
-    max-width: 100%;
-    height: 110px;
-    width: 100%;
-    display: block;
-    box-shadow: 4px 4px 8px black;
-}
-
-.logo_mobile {
-    width: 100%;
-    height: 110px;
-    display: none;
-    box-shadow: 4px 4px 8px black;
-}
-
 .card{
     
     margin-top: 40px;
     margin-bottom: 40px;
-    box-shadow: 4px 4px 8px black;
 }
 .card-title{
     margin-bottom: 20px;
@@ -114,20 +95,8 @@ html {
 } 
 .btn {
     width: 100%;
-    background: none;
-    border: 2px solid blue;
-    color: black;
-    padding: 5px;
-    font-size: 18px;
-    cursor: pointer;
-    margin: 12px 0;
-    box-shadow: 4px 4px 8px black;
 }
 
-.btn:hover {
-    background-color: blue;
-    color: white;
-}
 .login-gira {
     max-width: 150px;
     width: 40%;
@@ -135,6 +104,23 @@ html {
     margin: 50px auto;
     animation: spin 3s infinite linear;
     
+}
+nav {
+    position: fixed;
+    z-index: 999;
+    width: 100%;
+    height: 80px;
+}
+
+#navi{
+    background-color: white;
+}
+#navi a{
+    color: black;   
+}
+.reglog{
+    justify-content: center;
+    padding-top: 20px;
 }
 
 @keyframes spin {

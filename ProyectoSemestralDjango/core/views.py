@@ -14,3 +14,9 @@ def news(request):
 
 def Register(request):
     return render(request, 'core/Register.html')
+
+def noticias(request):
+    return render(request,'core/noticias.html')
+
+def periodista(request):
+    return render(request, 'core/periodista.html')
