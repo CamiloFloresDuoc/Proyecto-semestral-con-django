@@ -25,7 +25,7 @@ class Autor(models.Model):
 class Noticias(models.Model):
     noticia_id = models.AutoField(primary_key=True)
     titulo = models.CharField(max_length=100,verbose_name='Titulo Noticia')
-    cuerpo = models.CharField(max_length=1000,verbose_name='Cuerpo Noticia')
+    cuerpo = models.TextField(max_length=1000,verbose_name='Cuerpo Noticia')
     fecha = models.DateTimeField(auto_now_add=True, auto_now=False)
     categoria = models.ForeignKey(Categoria, on_delete=CASCADE)
     imagen = models.ImageField(upload_to="images")
