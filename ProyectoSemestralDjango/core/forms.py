@@ -8,4 +8,4 @@ from .models import Noticias
 class NoticiasForm(ModelForm):
     class Meta:
         model = Noticias
-        fields = ['titulo', 'cuerpo', 'categoria']
+        fields = ['titulo', 'cuerpo', 'categoria','imagen']
