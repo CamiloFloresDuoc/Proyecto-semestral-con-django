@@ -116,7 +116,8 @@ nav {
     background-color: white;
 }
 #navi a{
-    color: black;   
+    color: black; 
+    background-color: white;   
 }
 #navi a:hover{
     background-color: black;
