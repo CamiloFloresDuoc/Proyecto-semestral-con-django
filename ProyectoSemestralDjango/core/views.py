@@ -1,4 +1,7 @@
+from .forms import NoticiasForm
 from django.shortcuts import render
+from .models import Noticias
+from .models import Categoria
 
 def index(request):
     return render(request, 'core/index.html')
@@ -19,4 +22,25 @@ def noticias(request):
     return render(request,'core/noticias.html')
 
 def periodista(request):
-    return render(request, 'core/periodista.html')
+
+    noticias = Noticias.objects.all()
+
+    datos = {
+        'noticias' : noticias
+    }
+    return render(request, 'core/periodista.html',datos)
+
+def nuevaNoticia(request):
+
+    datos = {
+        'form' : NoticiasForm()
+    }
+
+    if request.method == 'POST':
+        formulario = NoticiasForm(request.POST, request.FILES)
+
+        if formulario.is_valid:
+            formulario.save()
+            datos['mensaje'] = 'Vehículo guardado exitosamente'
+
+    return render(request,'core/nuevaNoticia.html',datos)

@@ -30,7 +30,7 @@
                         <a class="nav-link" href="{% url 'index' %}">Inicio <span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#notic">Subir Noticias</a>
+                            <a class="nav-link" href="{% url 'nuevaNoticia' %}">Agregar Noticia</a>
                         </li>
                     </ul>
                     </div>
@@ -71,6 +71,14 @@
         </div>
         <br><br>
         <div class="row">
+            <div class="col-1"></div>
+            <div class="col">
+                <a href="{% url 'nuevaNoticia' %}"><button type="button" class="btn btn-outline-dark">+ Agregar Noticia</button></a>
+            </div>
+            <div class="col-1"></div>
+        </div>
+        <br>
+        <div class="row">
             <div class="col"></div>
             <div class="col-10">
 
@@ -81,17 +89,17 @@
                         <td>Contenido</td>
                         <td>Acción</td>
                     </tr>
-                    for n in noticia
+                    {% for n in noticias %}
                     <tr>
-                        <td>imagen </td>
-                        <td>Titulo</td>
-                        <td>Contenido</td>
+                        <td>{{ n.imagen }} </td>
+                        <td>{{ n.titulo }}</td>
+                        <td>{{ n.cuerpo }}</td>
                         <td>
                             <a href="#">Editar</a>
                             <a href="#">Eliminar</a>
                         </td>
                     </tr>
-                    endfor
+                    {% endfor %}
                 </table>
                 <br>
                 <br>
