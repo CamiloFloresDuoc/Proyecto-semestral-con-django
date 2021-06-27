@@ -58,9 +58,9 @@
                             <div class="from-group">
                                 <select name="autor" id="autor" class="custom-select">
                                     <option value="selected">Buscar autor</option>
-                                    <option value="1">Camilo Flores</option>
-                                    <option value="2">Marcelo Rodriguez</option>
-                                    <option value="3">Bastián Leyton</option>
+                                    {% for a in autor %}
+                                    <option value="{{a.Autor}}">{{ a.nombreAutor }}</option>
+                                    {% endfor %}
                                 </select>
                             </div>
                         </div>
@@ -68,14 +68,9 @@
                             <div class="from-group">
                                 <select name="categoria" id="cate" class="custom-select">
                                     <option value="selected">Buscar categoría</option>
-                                    <option value="1">Nacional</option>
-                                    <option value="2">Internacional</option>
-                                    <option value="3">Deportes</option>
-                                    <option value="4">Cultura</option>
-                                    <option value="5">Culinario</option>
-                                    <option value="6">Pandemia</option>
-                                    <option value="7">Social</option>
-                                    <option value="8">Random</option>
+                                    {% for c in categoria %}
+                                    <option value="{{c.Categoria}}">{{ c.nombreCategoria }}</option>
+                                    {% endfor %}
                                 </select>
                             </div>
                         </div>
@@ -102,7 +97,7 @@
                         <div class="card-body">
                         <h5 class="card-title">{{ n.titulo }}</h5>
                         <p class="card-text"> {{ n.cuerpo }}</p>
-                        <a href="{% url 'news' %}" class="btn btn-primary">Leer más ...</a>
+                        <a href="{% url 'news' %}" class="btn btn-outline-dark">Leer más ...</a>
                         <p class="card-text"><small class="text-muted">{{ n.fecha }}</small></p>
                         </div>
                     </div>

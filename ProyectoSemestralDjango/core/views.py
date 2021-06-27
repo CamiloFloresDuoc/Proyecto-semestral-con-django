@@ -1,10 +1,20 @@
 from .forms import NoticiasForm
 from django.shortcuts import render
-from .models import Noticias
+from .models import Autor, Noticias
 from .models import Categoria
 
 def index(request):
-    return render(request, 'core/index.html')
+
+    autor = Autor.objects.all()
+    noticias = Noticias.objects.all()
+    categoria = Categoria.objects.all()
+
+    datos = {
+        'noticias' : noticias,
+        'autor' : autor,
+        'categoria' : categoria
+    }
+    return render(request, 'core/index.html', datos)
 
 def AboutUs(request):
     return render(request, 'core/AboutUs.html')
@@ -20,10 +30,14 @@ def Register(request):
 
 def noticias(request):
 
+    autor = Autor.objects.all()
     noticias = Noticias.objects.all()
+    categoria = Categoria.objects.all()
 
     datos = {
-        'noticias' : noticias
+        'noticias' : noticias,
+        'autor' : autor,
+        'categoria' : categoria
     }
     return render(request,'core/noticias.html',datos)
 
