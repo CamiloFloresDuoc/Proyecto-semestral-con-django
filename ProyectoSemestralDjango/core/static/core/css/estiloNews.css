@@ -18,4 +18,10 @@ img{
 .fotonoticia img{
     width: 100%;
 }
+#navi a:hover{
+    background-color: black;
+    color: white; 
+    transition: 0.5s;  
+    border-radius: 5px;
+}
 

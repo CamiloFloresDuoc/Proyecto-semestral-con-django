@@ -121,6 +121,12 @@ nav {
 #navi a{
     color: black;   
 }
+#navi a:hover{
+    background-color: black;
+    color: white; 
+    transition: 0.5s;  
+    border-radius: 5px;
+}
 .reglog{
     justify-content: center;
     padding-top: 20px;

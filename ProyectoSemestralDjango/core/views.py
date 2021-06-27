@@ -19,7 +19,13 @@ def Register(request):
     return render(request, 'core/Register.html')
 
 def noticias(request):
-    return render(request,'core/noticias.html')
+
+    noticias = Noticias.objects.all()
+
+    datos = {
+        'noticias' : noticias
+    }
+    return render(request,'core/noticias.html',datos)
 
 def periodista(request):
 
@@ -41,6 +47,6 @@ def nuevaNoticia(request):
 
         if formulario.is_valid:
             formulario.save()
-            datos['mensaje'] = 'Vehículo guardado exitosamente'
+            datos['mensaje'] = 'Noticia guardado exitosamente'
 
     return render(request,'core/nuevaNoticia.html',datos)

@@ -17,9 +17,7 @@
         <nav class="row" id="navi">
             <div class="col-9">
                 <nav class="navbar navbar-expand-lg navbar-light">
-                    <a class="navbar-brand" href="#">
-                        <img src="{% static 'core/img/letra1.png' %}" height="35px" alt="">
-                    </a>
+                    <img src="{% static 'core/img/letra1.png' %}" height="45px" class="navbar-brand" alt="">
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                     </button>
@@ -55,10 +53,8 @@
             <div class="col">
                 <form action="" method="POST" name="busca" id="busca">
                     <div class="row" id="busqueda">
+                        <div class="col-1"></div>
                         <div class="col">
-                            <a href="{% url 'noticias' %}"><button type="button" class="btn btn-dark">Ver sólo Noticias</button></a>
-                        </div>
-                        <div class="col-4">
                             <div class="from-group">
                                 <select name="autor" id="autor" class="custom-select">
                                     <option value="selected">Buscar autor</option>
@@ -68,7 +64,7 @@
                                 </select>
                             </div>
                         </div>
-                        <div class="col-4">
+                        <div class="col">
                             <div class="from-group">
                                 <select name="categoria" id="cate" class="custom-select">
                                     <option value="selected">Buscar categoría</option>
@@ -92,20 +88,22 @@
         <br>
 
     <!--noticias cards-->
+        
+        {% for n in noticias %}
         <div class="row">
             <div class="col-1"></div>
             <div class="col">
                 <div class="card mb-3" style="max-width: 100%;">
                     <div class="row no-gutters">
                     <div class="col-md-4">
-                        <img src="..." alt="...">
+                        <img src="{{ n.imagen.url }}" height="100%" width="100%" alt="...">
                     </div>
                     <div class="col-md-8">
                         <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                        <h5 class="card-title">{{ n.titulo }}</h5>
+                        <p class="card-text"> {{ n.cuerpo }}</p>
                         <a href="{% url 'news' %}" class="btn btn-primary">Leer más ...</a>
-                        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                        <p class="card-text"><small class="text-muted">{{ n.fecha }}</small></p>
                         </div>
                     </div>
                     </div>
@@ -113,6 +111,8 @@
             </div>
             <div class="col-1"></div>
         </div>
+        <br>
+        {% endfor %}
         <div class="row espacio"></div>
 <!--footer-->
         <footer class="row">
