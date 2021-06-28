@@ -1,4 +1,4 @@
-from .forms import NoticiasForm
+from .forms import NoticiasForm, ContactoForm
 from django.shortcuts import render
 from .models import Autor, Noticias
 from .models import Categoria
@@ -10,10 +10,20 @@ def index(request):
     categoria = Categoria.objects.all()
 
     datos = {
+        'form' : ContactoForm(),
         'noticias' : noticias,
         'autor' : autor,
         'categoria' : categoria
     }
+
+    if request.method == 'POST':
+        formulario = ContactoForm(request.POST)
+        if formulario.is_valid():
+            formulario.save()
+            datos["mensaje"] = 'Mensaje enviado, gracias por contactarnos'
+        else:
+            datos['form'] = formulario
+
     return render(request, 'core/index.html', datos)
 
 def AboutUs(request):
