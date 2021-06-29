@@ -1,7 +1,9 @@
-from .forms import NoticiasForm, ContactoForm
-from django.shortcuts import render
+from django.forms.forms import Form
+from .forms import NoticiasForm
+from django.shortcuts import render, redirect, get_object_or_404
 from .models import Autor, Noticias
 from .models import Categoria
+
 
 def index(request):
 
@@ -10,20 +12,10 @@ def index(request):
     categoria = Categoria.objects.all()
 
     datos = {
-        'form' : ContactoForm(),
         'noticias' : noticias,
         'autor' : autor,
         'categoria' : categoria
     }
-
-    if request.method == 'POST':
-        formulario = ContactoForm(request.POST)
-        if formulario.is_valid():
-            formulario.save()
-            datos["mensaje"] = 'Mensaje enviado, gracias por contactarnos'
-        else:
-            datos['form'] = formulario
-
     return render(request, 'core/index.html', datos)
 
 def AboutUs(request):
@@ -66,11 +58,53 @@ def nuevaNoticia(request):
         'form' : NoticiasForm()
     }
 
-    if request.method == 'POST':
+    if (request.method == 'POST'):
         formulario = NoticiasForm(request.POST, request.FILES)
 
-        if formulario.is_valid:
+        if formulario.is_valid():
             formulario.save()
-            datos['mensaje'] = 'Noticia guardado exitosamente'
-
+            datos['mensaje'] = 'Noticia guardada exitosamente!'
+            
+           
     return render(request,'core/nuevaNoticia.html',datos)
+
+def editarNoticia(request, noticia_id):
+
+    noticias = get_object_or_404(Noticias, noticia_id=noticia_id)
+
+    datos = {
+        'form': NoticiasForm(instance=noticias)
+    }
+
+    if request.method == 'POST':
+        formulario = NoticiasForm(request.POST, instance=noticias, files=request.FILES)
+        if formulario.is_valid():
+            formulario.save()
+            datos['mensaje'] = 'Noticia Modificada Correctamente!'
+            
+        datos["form"] = formulario
+
+    return render(request, 'core/editarNoticia.html',datos)
+
+def eliminarNoticia(request, noticia_id):
+    
+    noticias = Noticias.objects.get(noticia_id=noticia_id)
+    noticias.delete()
+    return redirect(to="periodista")
+    
+    
+def notiId(request, noticia_id):
+
+    
+    noticias = Noticias.objects.filter(noticia_id=noticia_id)
+    
+
+    datos = {
+        'noticias' : noticias,
+        'noticia_id' : noticia_id,
+        
+        
+    }
+
+    return render(request,'core/notiId.html',datos)
+    

@@ -93,8 +93,8 @@
                         <td>{{ n.titulo }}</td>
                         <td>{{ n.cuerpo }}</td>
                         <td>
-                            <a href="#">Editar</a>
-                            <a href="#">Eliminar</a>
+                            <a href="{% url 'editarNoticia' n.noticia_id %}" class='btn btn-info'>Editar</a>
+                            <a href="{% url 'eliminarNoticia' n.noticia_id %}" class='btn btn-danger'>Eliminar</a>
                         </td>
                     </tr>
                     {% endfor %}

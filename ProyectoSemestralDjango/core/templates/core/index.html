@@ -1,6 +1,6 @@
 {% load static %}
 {% load bootstrap4 %}
-{% load crispy_forms_tags %}
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -89,10 +89,10 @@
                         </div>
                         {% for n in noticias %}
                         <div class="carousel-item">
-                            <a href="{% url 'news'%}"><img src="{{ n.imagen.url }}" class="d-block w-100" height="743px" alt="..."></a>
+                            <a href="{% url 'notiId' n.noticia_id %}"><img src="{{ n.imagen.url }}" class="d-block w-100" height="743px" alt="..."></a>
                             <div class="carousel-caption d-none d-md-block">
                                 <div class="linkcarruselnoti">
-                                    <a href="{% url 'news'%}">
+                                    <a href="{% url 'notiId' n.noticia_id %}">
                                         <h5>{{ n.titulo }}</h5>
                                     </a>
                                 </div>
@@ -219,7 +219,7 @@
                 <div class="card-body">
                 <h5 class="card-title">{{ n.titulo }}</h5>
                 <p class="card-text"> {{ n.cuerpo }}</p>
-                <a href="{% url 'news' %}" class="btn btn-outline-dark">Leer más ...</a>
+                <a href="{% url 'notiId' n.noticia_id %}" class="btn btn-outline-dark">Leer más ...</a>
                 <p class="card-text"><small class="text-muted">{{ n.fecha }}</small></p>
                 </div>
             </div>
@@ -243,9 +243,50 @@
         </div>
         <br>
         <div class="row justify-content-center">
-            <form class="contacto" method="POST">
-                {% csrf_token %}
-                {{ form|crispy }}
+            <form class="contacto" id="contactForm">
+                <div class="form-row">
+                    <div class="col">
+                        <div class="form-group">
+                            <label for="elnombre">Nombre</label>
+                            <input type="text" class="form-control" id="elNombre"
+                                placeholder="Nombre Completo" required>
+                            <div class="invalid-feedback" id="eNombre"></div> 
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="form-group">
+                            <label for="elEmail">Email</label>
+                            <input type="email" class="form-control" id="elEmail"
+                                placeholder="nombre@email.com" required>
+                            <div class="invalid-feedback" id="eMail"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="col">
+                        <div class="form-group">
+                            <label for="elAsunto">Asunto</label>
+                            <input type="text" class="form-control" id="elAsunto" placeholder="Asunto" required>
+                            <div class="invalid-feedback" id="eAsunto"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="col">
+                        <div class="form-group">
+                            <label for="elMensaje">Mensaje</label>
+                            <textarea class="form-control" id="elMensaje" rows="3"></textarea>
+                            <div class="row">
+                                <div class="col-10">
+                                    <div class="invalid-feedback" id="eMensaje"></div>
+                                </div>
+                                <div class="col-2">
+                                    <small class="form-text text-muted text-right" id="contcaract">0</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <div class="form-row">
                     <div class="col">
                         <button type="submit" class="btn btn-dark">Enviar</button>
@@ -253,11 +294,6 @@
                     </div>
                 </div>
             </form>
-            <div class="row">
-                <div class="col-1"></div>
-                <div class="col">{{ mensaje }}</div>
-                <div class="col"></div>
-            </div>
         </div>
         <div class="row espacio"></div>
 <!--footer-->
@@ -276,6 +312,12 @@
     {% bootstrap_javascript jquery='full' %}
     <script src="{% static 'core/js/validacionFormIndex.js'%}"></script>
     <script src="{% static 'core/js/activacionApis.js'%}"></script>
+    
+    
+    
+{% block js%} 
+{% endblock %}
+
 </body>
 
 </html>

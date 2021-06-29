@@ -97,7 +97,7 @@
                         <div class="card-body">
                         <h5 class="card-title">{{ n.titulo }}</h5>
                         <p class="card-text"> {{ n.cuerpo }}</p>
-                        <a href="{% url 'news' %}" class="btn btn-outline-dark">Leer más ...</a>
+                        <a href="{% url 'notiId' n.noticia_id %}" class="btn btn-outline-dark">Leer más ...</a>
                         <p class="card-text"><small class="text-muted">{{ n.fecha }}</small></p>
                         </div>
                     </div>
