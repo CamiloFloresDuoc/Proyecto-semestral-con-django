@@ -105,7 +105,20 @@
             <div class="col"></div>
         </div>
     </div>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     
+    {% if messages %}
+                    {% for m in messages %}
+                    <script>
+                        Swal.fire({
+                        icon: 'success',
+                        title: '{{m}}',
+                        showConfirmButton: false,
+                        timer: 1000
+                    })
+                    </script>
+                    {% endfor %}
+    {% endif %}
     {% bootstrap_javascript jquery='full' %}
 </body>
 </html>

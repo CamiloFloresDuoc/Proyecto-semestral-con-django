@@ -3,7 +3,7 @@ from .forms import NoticiasForm
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import Autor, Noticias
 from .models import Categoria
-
+from django.contrib import messages
 
 def index(request):
 
@@ -63,7 +63,7 @@ def nuevaNoticia(request):
 
         if formulario.is_valid():
             formulario.save()
-            datos['mensaje'] = 'Noticia guardada exitosamente!'
+            messages.success(request, "Noticia agregada Exitosamente!")
             
            
     return render(request,'core/nuevaNoticia.html',datos)
@@ -80,7 +80,7 @@ def editarNoticia(request, noticia_id):
         formulario = NoticiasForm(request.POST, instance=noticias, files=request.FILES)
         if formulario.is_valid():
             formulario.save()
-            datos['mensaje'] = 'Noticia Modificada Correctamente!'
+            messages.success(request, "Noticia Modificada Exitosamente!")
             
         datos["form"] = formulario
 
@@ -90,6 +90,7 @@ def eliminarNoticia(request, noticia_id):
     
     noticias = Noticias.objects.get(noticia_id=noticia_id)
     noticias.delete()
+    messages.success(request, "Noticia eliminada Exitosamente!")
     return redirect(to="periodista")
     
     
@@ -102,8 +103,6 @@ def notiId(request, noticia_id):
     datos = {
         'noticias' : noticias,
         'noticia_id' : noticia_id,
-        
-        
     }
 
     return render(request,'core/notiId.html',datos)
