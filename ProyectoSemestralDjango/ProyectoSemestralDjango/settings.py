@@ -35,6 +35,7 @@ INSTALLED_APPS = [
     #TERCEROS
     'bootstrap4',
     'crispy_forms', 
+    'rest_framework',
     #django
     'django.contrib.admin',
     'django.contrib.auth',
@@ -44,6 +45,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     #mis apps
     'core',
+    'rest',
 ]
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
