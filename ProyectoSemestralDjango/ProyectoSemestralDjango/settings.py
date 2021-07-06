@@ -36,6 +36,7 @@ INSTALLED_APPS = [
     'bootstrap4',
     'crispy_forms', 
     'rest_framework',
+    'rest_framework.authtoken',
     #django
     'django.contrib.admin',
     'django.contrib.auth',
@@ -117,6 +118,12 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+#TOKEN VALIDATOR
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.TokenAuthentication',
+    ],
+}
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
